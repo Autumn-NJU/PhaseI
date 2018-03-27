@@ -4,17 +4,20 @@ import com.utag.phase1.dao.DaoService.UserDao;
 import com.utag.phase1.dao.UserDaoImpl;
 import com.utag.phase1.service.UserService;
 import com.utag.phase1.util.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.config.RepositoryNameSpaceHandler;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.transaction.Transactional;
 import java.io.IOException;
 
 
-
+@Service
 public class UserServiceImpl implements UserService  {
-    UserDao userDao = new UserDaoImpl();
+    @Autowired
+    private UserDao userDao;
 
 
     @Override

@@ -1,14 +1,15 @@
 package com.utag.phase1.dao;
 
-import com.google.gson.Gson;
 import com.utag.phase1.dao.DaoService.UserDao;
 import com.utag.phase1.domain.User;
 import com.utag.phase1.util.FileTool;
 import com.utag.phase1.util.GsonTool;
+import org.springframework.stereotype.Repository;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
-
+@Repository
 public class UserDaoImpl  implements UserDao {
     private static final String FILE_NAME = "user.json";
 
