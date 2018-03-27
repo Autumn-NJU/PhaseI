@@ -1,16 +1,18 @@
 package com.utag.phase1.service.Impl;
 
 import com.utag.phase1.dao.DaoService.TagPartDao;
-import com.utag.phase1.dao.TagPartDaoImpl;
 import com.utag.phase1.domain.TagPart;
 import com.utag.phase1.service.TagPartService;
 import com.utag.phase1.util.Response;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
-
+@Service
 public class TagPartServiceImpl implements TagPartService {
-    TagPartDao tagPartDao = new TagPartDaoImpl();
+    @Autowired
+    private TagPartDao tagPartDao;
 
     @Override
     public Response<Boolean> saveTagPart(String imageID, double x1, double x2, double y1, double y2, String description)

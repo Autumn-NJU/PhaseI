@@ -1,16 +1,17 @@
 package com.utag.phase1.dao;
 
-import com.google.gson.Gson;
+
 import com.utag.phase1.dao.DaoService.TagPartDao;
 import com.utag.phase1.domain.TagPart;
 import com.utag.phase1.util.FileTool;
 import com.utag.phase1.util.GsonTool;
+import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.HTML;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class TagPartDaoImpl implements TagPartDao {
 
     private static final String FILE_NAME = "part_pictures.json";

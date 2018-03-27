@@ -4,11 +4,12 @@ import com.utag.phase1.dao.DaoService.TagWholeDao;
 import com.utag.phase1.domain.TagWhole;
 import com.utag.phase1.util.FileTool;
 import com.utag.phase1.util.GsonTool;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-
+@Repository
 public class TagWholeDaoImpl implements TagWholeDao {
     private static final String FILE_NAME = "whole_pictures.json";
 

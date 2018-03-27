@@ -37,8 +37,6 @@ public class FileTool {
     public static List<String> readFile(String fileName) throws IOException{
         List<String> list = new ArrayList<>();
         try {
-            File file = new File(prefixPath + fileName);
-            System.out.println(file.getAbsolutePath());
             FileReader fileReader = new FileReader(new File(prefixPath + fileName));
             BufferedReader reader = new BufferedReader(fileReader);
             String str = null;

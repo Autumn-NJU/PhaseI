@@ -1,14 +1,18 @@
 package com.utag.phase1.service.Impl;
 
 import com.utag.phase1.dao.DaoService.TagWholeDao;
-import com.utag.phase1.dao.TagWholeDaoImpl;
 import com.utag.phase1.service.TagWholeService;
 import com.utag.phase1.util.Response;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.io.IOException;
 
+@Service
 public class TagWholeServiceImpl implements TagWholeService {
 
-    TagWholeDao tagWholeDao = new TagWholeDaoImpl();
+    @Autowired
+    private TagWholeDao tagWholeDao;
 
     @Override
     public Response<Boolean> saveTagWhole(String imageID, String description) throws IOException{

@@ -4,6 +4,7 @@ import com.utag.phase1.domain.TagPart;
 import com.utag.phase1.service.Impl.TagPartServiceImpl;
 import com.utag.phase1.service.TagPartService;
 import com.utag.phase1.util.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,7 +16,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/workplace/part/")
 public class TagPartController {
-    TagPartService tagPartService = new TagPartServiceImpl();
+
+    @Autowired
+    private TagPartService tagPartService;
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
