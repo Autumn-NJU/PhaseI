@@ -15,31 +15,35 @@ public class TagPartServiceImpl implements TagPartService {
     private TagPartDao tagPartDao;
 
     @Override
-    public Response<Boolean> saveTagPart(String imageID, double x1, double x2, double y1, double y2, String description)
-            throws IOException{
-        Response<Boolean> response = new Response<>();
-        if(tagPartDao.saveTagPart(imageID, x1, x2, y1, y2, description))
-            response.setSuccess(true);
-        else
-            response.setSuccess(false);
-        return response;
+    public Response<Boolean> saveTagPart(String imageID, double x1, double x2, double y1, double y2, String description){
+        try{
+            tagPartDao.saveTagPart(imageID, x1, x2, y1, y2, description);
+            return new Response<>(true, "Succeed to save user!");
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Response<>(false, "Fail to save user!");
+        }
     }
 
     @Override
     public Response<List<TagPart>> showTagPart(String imageID) throws IOException{
-        Response<List<TagPart>> response = new Response<>();
-        response.setData(tagPartDao.showTagPart(imageID));
-        return response;
+        try{
+            return new Response<List<TagPart>>(true, tagPartDao.showTagPart(imageID));
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Response<>(false, "Fail to show part tag!");
+        }
     }
 
     @Override
     public Response<Boolean> deleteTagPart(String imageID)throws IOException {
-        Response<Boolean> response = new Response<>();
-        if(tagPartDao.deleteTagPart(imageID))
-            response.setSuccess(true);
-        else
-            response.setSuccess(false);
-        return response;
+        try{
+            tagPartDao.deleteTagPart(imageID);
+            return new Response<>(true, "Succeed to delete part tag!");
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Response<>(false, "Fail to delete part tag!");
+        }    
     }
 
     @Override

@@ -39,7 +39,7 @@ public class FileTool {
         try {
             FileReader fileReader = new FileReader(new File(prefixPath + fileName));
             BufferedReader reader = new BufferedReader(fileReader);
-            String str = null;
+            String str;
             while ((str = reader.readLine()) != null) {
                 if(str.startsWith("{"))
                     list.add(str);
