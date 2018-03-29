@@ -17,7 +17,7 @@ public interface UserService {
      *
      * @return
      */
-    public Response<Boolean> deleteUser(String user, String password) throws IOException;
+    public Response<Boolean> deleteUser(String user) throws IOException;
 
 
     /**

@@ -21,44 +21,45 @@ public class UserServiceImpl implements UserService  {
 
 
     @Override
-    public Response<Boolean> saveUser(String user, String password) throws IOException{
-        Response<Boolean> response = new Response<>();
-        if(userDao.saveUser(user, password)){
-            response.setSuccess(true);
+    public Response<Boolean> saveUser(String user, String password){
+        try{
+            userDao.saveUser(user, password);
+            return new Response<>(true, "Succeed to register!");
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Response<>(false, "Fail to register!");
         }
-        else{
-            response.setSuccess(false);
-        }
-        return response;
     }
 
     @Override
-    public Response<Boolean> deleteUser(String user, String password) throws IOException {
-        Response<Boolean> response = new Response<>();
-        if(userDao.deleteUser(user, password))
-            response.setSuccess(true);
-        else
-            response.setSuccess(false);
-        return response;
+    public Response<Boolean> deleteUser(String user) throws IOException {
+        try{
+            userDao.deleteUser(user);
+            return new Response<>(true, "Succeed to delete user!");
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Response<>(false, "Fail to delete user!");
+        }
     }
 
     @Override
     public Response<Boolean> updateUser(String user, String password) throws IOException{
-        Response<Boolean> response = new Response<>();
-        if(userDao.updateUser(user, password))
-            response.setSuccess(true);
-        else
-            response.setSuccess(false);
-        return response;
+        try {
+            userDao.updateUser(user, password);
+            return new Response<>(true, "Succeed to update user!");
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Response<>(false, "Fail to update user!");
+        }
     }
 
     @Override
     public Response<Boolean> canLogin(String user, String password) throws IOException{
-        Response<Boolean> response = new Response<>();
-        if(userDao.canLogin(user, password))
-            response.setSuccess(true);
-        else
-            response.setSuccess(false);
-        return response;
+        try{
+            return new Response<>(userDao.canLogin(user, password), "Succeed to login!");
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Response<>(false, "Fail to login!");
+        }
     }
 }

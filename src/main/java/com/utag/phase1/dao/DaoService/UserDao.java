@@ -17,7 +17,7 @@ public interface UserDao {
      *删除用户
      * @return
      */
-    public boolean deleteUser(String user, String password) throws IOException;
+    public boolean deleteUser(String user) throws IOException;
 
     /**
      *更新用户信息

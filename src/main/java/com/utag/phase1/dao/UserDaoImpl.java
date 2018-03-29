@@ -33,7 +33,7 @@ public class UserDaoImpl  implements UserDao {
     }
 
     @Override
-    public boolean deleteUser(String user, String password) throws IOException{
+    public boolean deleteUser(String user) throws IOException{
         if(!isUserExist(user))
             return false;
         ArrayList<User> userList = init();
